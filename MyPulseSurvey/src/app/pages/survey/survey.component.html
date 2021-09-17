@@ -1,0 +1,49 @@
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="mypulse-content">
+            <div class="mypulse-content-header bg-img">
+                <i class="bi bi-lock"></i>
+                Tüm cevaplar anonim olarak toplanmaktadır.
+                <a class="float-end text-white " [routerLink]="['/message']"> <i class="bi bi-chat-dots"></i> Mesaj</a>
+            </div>
+            <div class="mypulse-content-body">
+                <div class="row align-items-center">
+                    <div class="col-md-4">
+                        <div class="mypulse-content-body-text">
+                            <img src="assets/images/mascot-bg.png" alt="*" class="img-fluid">
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <app-selection *ngIf="question==1" ></app-selection>
+                        <app-multi-selection *ngIf="question==2"   ></app-multi-selection>
+                        <app-emotion  *ngIf="question==3"    ></app-emotion>
+                        <app-comment  *ngIf="question==4"    ></app-comment>
+                        <app-rate *ngIf="question==5"  ></app-rate>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="mypulse-content-footer">
+                <div class="row">
+                    <div class="col-md-3 col-6 order-1 order-lg-1 order-sm-2">
+                        <button [attr.disabled]="question<=1?'disabled':null" (click)="prevQuestion()" type="button" class="btn btn-danger text-white rounded-5">
+                            <i class="bi bi-chevron-left"></i> Önceki Soru
+                        </button>
+                    </div>
+                    <div class="col-md-6 text-center order-lg-2 order-sm-1">
+                        <label for="questionID" class="text-danger fs-4 fw-bold">
+                            SORU {{question}} / {{totalQuestion}}
+                        </label>
+                    </div>
+                    <div  class="col-md-3 col-6 text-end order-lg-3 order-sm-3">
+                        <button [attr.disabled]="question>=5?'disabled':null" (click)="nextQuestion()" type="button" class="btn btn-danger text-white rounded-5">
+                            Sonraki Soru <i class="bi bi-chevron-right"></i> 
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,374 @@
+/*
+ __      __                        
+ \ \    / /                        
+  \ \  / /__  ___  _ __   ___ _ __ 
+   \ \/ / _ \/ _ \| '_ \ / _ \ '__|
+    \  /  __/ (_) | |_) |  __/ |   
+     \/ \___|\___/| .__/ \___|_|   
+                  | |              
+                  |_|     
+  Bu proje mypulse için geliştirilmiştir.
+  Proje Tarihi: 2021 | İletişim: hi@veoper.com
+*/
+
+/*---------------VARIABLES--------------*/
+$bg-color: #fff;
+$text-dark: #707070;
+/*----------------IMPORTS---------------*/
+$danger: #fd5858;
+$dark: #434343;
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css");
+/*----------------FONTS---------------*/
+@font-face {
+  font-family: Barlow-Bold;
+  src: url(../fonts/BarlowCondensed-Bold.ttf);
+}
+@font-face {
+  font-family: Barlow-Medium;
+  src: url(../fonts/BarlowCondensed-Medium.ttf);
+}
+@font-face {
+  font-family: Barlow-Regular;
+  src: url(../fonts/BarlowCondensed-Regular.ttf);
+}
+@font-face {
+  font-family: Barlow-SemiBold;
+  src: url(../fonts/BarlowCondensed-SemiBold.ttf);
+}
+/*----------------CUSTOM---------------*/
+html {
+  scroll-behavior: smooth;
+}
+body {
+  background-color: $bg-color;
+  color: $text-dark;
+  -webkit-font-smoothing: antialiased;
+}
+a {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+}
+button:focus,
+input:focus,
+textarea:focus,
+.form-select:focus {
+  outline: unset !important;
+  box-shadow: unset !important;
+}
+.rounded-5 {
+  border-radius: 0.5rem !important;
+}
+.fx-100 {
+  flex: 0 0 calc(100%) !important;
+  max-width: calc(100%) !important;
+}
+/*-----------------------------------------*/
+main {
+  section {
+    &#mypulse {
+      // width: 100vw;
+      height: 100vh;
+      padding: 5rem 0;
+      .mypulse-content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        align-items: unset;
+        border: 1px solid #7070701a;
+        box-shadow: 0px 3px 6px #00000016;
+        border-radius: 2rem 2rem 1rem 1rem;
+        &-header {
+          padding: 1rem 2rem 2rem 2rem;
+          width: 100%;
+          color: #fff;
+          background: #fd5858;
+          border-top-left-radius: 1rem;
+          border-top-right-radius: 1rem;
+          &.bg-img {
+            background: $danger url(../images/header-bg.jpg) no-repeat;
+            background-size: cover;
+            background-position: center;
+          }
+        }
+        &-body {
+          text-align: center;
+          position: relative;
+          top: -15px;
+          background: #fff;
+          border-top-left-radius: 15px;
+          border-top-right-radius: 15px;
+          padding: 2rem;
+          .user-info {
+            margin-bottom: 3rem;
+            .avatar {
+              width: 100px;
+              height: 100px;
+              margin: 0 auto;
+              background: #f8f8f8;
+              border: 2px solid #e7e7e7;
+              border-radius: 100%;
+              overflow: hidden;
+              margin-bottom: 0.5rem;
+            }
+            .username {
+              a {
+                display: block;
+                font-weight: 500;
+              }
+            }
+          }
+          .support-answer {
+            background-color: #f8f8f8;
+            margin-right: 2rem;
+            border-radius: 0.5rem;
+            text-align: left;
+            position: relative;
+            &:before {
+              content: "";
+              width: 0px;
+              height: 0px;
+              position: absolute;
+              border-left: 10px solid transparent;
+              border-right: 10px solid #f8f8f8;
+              border-top: 10px solid transparent;
+              border-bottom: 10px solid transparent;
+              left: -20px;
+              top: 9px;
+            }
+            &-time {
+              border-bottom: 1px solid #e6e6e6;
+              padding: 0.5rem 1rem;
+              font-size: 0.8rem;
+            }
+            &-content {
+              font-size: 0.9rem;
+              padding: 1rem;
+            }
+          }
+          .support-message {
+            margin: 0.5rem 2rem;
+            .input-group {
+              border-radius: 1rem;
+              background-color: #f8f8f8;
+              padding: 1rem 0;
+              .form-control {
+                background-color: #efefef;
+                border-radius: 0.5rem;
+                color: #444;
+                border: unset;
+              }
+            }
+          }
+          .question-details {
+            text-align: left;
+            .title {
+              margin-bottom: 0;
+              line-height: 2rem;
+              color: $dark;
+            }
+            .labelWarn {
+              display: block;
+              margin: 1rem 0;
+              color: $dark;
+              font-size: 1rem;
+            }
+            &-comment {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              margin: 4rem 2rem 0 0;
+              .comment-col {
+                flex: 0 0 calc(75%);
+                max-width: calc(75%);
+                display: flex;
+                align-items: center;
+                min-height: 100px;
+                &:last-child {
+                  flex: 0 0 calc(25%);
+                  max-width: calc(25%);
+                }
+                #addComment {
+                  #floatingTextArea {
+                    background: #f5f5f5;
+                    border: unset;
+                    border-radius: 0.5rem;
+                  }
+                }
+                .collapse-btn {
+                  &[aria-expanded="true"] {
+                    i {
+                      background-color: $danger;
+                      color: #fff;
+                      border-color: $danger;
+                      box-shadow: 0px 2px 3px $danger;
+                    }
+                  }
+                  i {
+                    background: #ffffff;
+                    color: #fd5858;
+                    width: 40px;
+                    height: 40px;
+                    display: inline-flex;
+                    text-align: center;
+                    align-items: center;
+                    justify-content: center;
+                    margin-right: 0.5rem;
+                    border: 1px solid #f2f2f2;
+                    box-shadow: 0px 2px 3px #00000024;
+                    border-radius: 0.5rem;
+                  }
+                }
+              }
+            }
+            &-rate {
+              .form-check-input:checked {
+                background-color: $danger;
+                border-color: $danger;
+              }
+              .btn-group {
+                .rate-desc {
+                  position: absolute;
+                  left: 0;
+                  right: 0;
+                  top: 55px;
+                  display: flex;
+                  justify-content: space-between;
+                  font-size: 0.8rem;
+                  color: $danger;
+                }
+                .btn-outline-primary {
+                  color: #444;
+                  border: 1px solid #f2f2f2;
+                  box-shadow: 0px 2px 3px #0000001a;
+                  font-family: Barlow-Bold;
+                  font-size: 2rem;
+                  margin: 0 1rem 0 0;
+                  width: 50px;
+                  height: 50px;
+                  border-radius: 0.5rem !important;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  &:nth-child(10) {
+                    margin: unset;
+                  }
+                }
+                .btn-check:active + .btn-outline-primary,
+                .btn-check:hover + .btn-outline-primary {
+                  background: $danger;
+                  border-color: $danger;
+                  color: #fff;
+                }
+                .btn-check:checked + .btn-outline-primary {
+                  background-color: transparent;
+                  color: $danger;
+                  border-color: $danger;
+                  border-width: 3px;
+                }
+              }
+            }
+          }
+          &-text {
+            max-width: 400px;
+            margin: 0 auto;
+            .title {
+              font-weight: 400;
+              margin: 1rem 0;
+            }
+            .desc {
+              margin-bottom: 2rem;
+            }
+          }
+        }
+        &-footer {
+          padding: 2rem;
+          label[for="questionID"] {
+            font-size: 1rem !important;
+          }
+        }
+      }
+    }
+  }
+}
+/*----------------RESPONSIVE---------------*/
+@media only screen and (max-width: 1024px) {
+}
+@media only screen and (max-width: 768px) {
+}
+@media only screen and (max-width: 576px) {
+  main {
+    section {
+      &#mypulse {
+        width: unset;
+        height: unset;
+        margin: 2rem 0;
+        padding: unset;
+        .mypulse-content {
+          &-header {
+            text-align: center;
+            padding: 1rem 0rem 2rem 0rem;
+          }
+          &-body,
+          &-footer {
+            padding: 2rem 1rem;
+          }
+          &-body {
+            .user-info {
+              margin-bottom: 1rem;
+            }
+            .support-message {
+              margin: unset;
+            }
+            .support-answer {
+              margin-right: unset;
+              margin-bottom: 1rem;
+              &:before {
+                left: 47%;
+                top: -20px;
+                transform: rotate(90deg);
+              }
+            }
+            .question-details {
+              padding-top: 1rem;
+              &-rate {
+                .btn-group {
+                  width: 100%;
+                }
+              }
+              &-comment {
+                margin: unset;
+                flex-direction: column;
+                .comment-col {
+                  flex: 0 0 calc(100%) !important;
+                  max-width: calc(100%) !important;
+                  width: 100%;
+                  &:first-child {
+                    margin-top: 3rem;
+                    min-height: unset;
+                  }
+                }
+                #addComment {
+                  width: 100% !important;
+                }
+              }
+            }
+          }
+          &-footer {
+            label[for="questionID"] {
+              margin-bottom: 1rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 375px) {
+}
+@media only screen and (max-width: 320px) {
+}
+/* ============ mobile view ============ */
