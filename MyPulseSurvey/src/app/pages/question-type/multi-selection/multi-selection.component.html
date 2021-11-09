@@ -1,10 +1,9 @@
 
-                        <div class="question-details">
-                            <p class="title fs-4">sdfsdfsd
-                                Dönem değerlendirme toplantısı için uygun olan
-                                günlerinizi lütfen işaretleyiniz.
-                            </p>
-                            <span class="labelWarn">Lütfen aşağıdaki seçeneklerden bir tanesini seçiniz.</span>
+                     <div class="question-details" *ngIf="currentQuestion">
+                        <p class="title fs-4">
+                             {{currentQuestion.title}}
+                        </p>
+                        <span class="labelWarn">  {{currentQuestion.description}}</span>
                             <form action="" method="POST">
                                 <div class="question-details-rate">
                                     <div class="form-check">

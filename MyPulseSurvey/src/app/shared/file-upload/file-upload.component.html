@@ -1,0 +1,16 @@
+
+    <input id="imagePath"  #file type="file" multiple placeholder="Dosya Yükle(-s)"
+    (change)="onFilesSelected($event)" class="d-none" />
+
+    <button  type="button" class="btn btn-default btn-xs float-right w-100" style="margin-bottom:0 !important;" (click)="file.click()">
+     Dosya Ekle  <span *ngIf="progress > 0 && progress < 100"> {{progress}}% </span> <ion-icon  *ngIf="!(progress > 0 && progress < 100)"   name="{{message ?'checkmark-circle-outline':'attach'}}"></ion-icon>
+
+    </button>
+    
+    <p class="upload-file-name float-right mt-1" *ngFor="let file of fileList;let i=index;">
+       Dosya-{{i+1}}  <a href="javascript:;" (click)="removeFile(file)">
+        <i class="fa fa-trash text-danger"></i>
+      </a>
+    </p>
+  
+

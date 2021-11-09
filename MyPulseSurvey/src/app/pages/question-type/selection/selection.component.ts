@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { SurveyQuestion } from 'src/app/models/entity/survey/survey-question';
 
 @Component({
   selector: 'app-selection',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./selection.component.scss']
 })
 export class SelectionComponent implements OnInit {
+  @Input() currentQuestion:SurveyQuestion | null=null;
 
   constructor() { }
 

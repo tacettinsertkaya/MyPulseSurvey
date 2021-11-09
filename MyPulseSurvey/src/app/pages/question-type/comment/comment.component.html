@@ -1,10 +1,8 @@
-<div class="question-details">
+<div class="question-details" *ngIf="currentQuestion">
     <p class="title fs-4">
-        Sizce dönem değerlendirme toplantıları nasıl yapılmalı? <br>
-        Nelere dikkat edilmeli?
+         {{currentQuestion.title}}
     </p>
-    <span class="labelWarn">Görüşlerinizi aşağıdaki kutucuğa yazdıktan sonra ‘’Sonraki Soru’’ butonuna
-        tıklayınız.</span>
+    <span class="labelWarn">  {{currentQuestion.description}}</span>
     <form action="" method="POST">
         <div class="question-details-comment mt-2">
             <div class="comment-col fx-100">

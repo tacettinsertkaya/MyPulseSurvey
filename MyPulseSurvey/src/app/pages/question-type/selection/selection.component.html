@@ -1,10 +1,9 @@
 
-                        <div class="question-details">
-                            <p class="title fs-4">
-                                HPW’deki insan kaynakları uygulamlarını diğer şirketlerle <br>
-                                karşılaştırdığınızda nasıl değerlendiriyorsunuz?
-                            </p>
-                            <span class="labelWarn">Lütfen aşağıdaki seçeneklerden bir tanesini seçiniz.</span>
+       <div class="question-details" *ngIf="currentQuestion">
+        <p class="title fs-4">
+             {{currentQuestion.title}}
+        </p>
+        <span class="labelWarn">  {{currentQuestion.description}}</span>
                             <form action="" method="POST">
                                 <div class="question-details-rate">
                                     <div class="form-check">

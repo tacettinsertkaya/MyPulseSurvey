@@ -13,6 +13,7 @@ import { CommentComponent } from './question-type/comment/comment.component';
 import { SurveyComponent } from './survey/survey.component';
 import { CommonModule } from '@angular/common';
 import { MessagesComponent } from './messages/messages.component';
+import { SurveyNotFoundComponent } from './error-pages/survey-not-found/survey-not-found.component';
 
 
 
@@ -26,7 +27,8 @@ import { MessagesComponent } from './messages/messages.component';
     CommentComponent,
     InitPageComponent,
     SurveyComponent,
-    MessagesComponent
+    MessagesComponent,
+    SurveyNotFoundComponent
     
     ],
   imports: [
