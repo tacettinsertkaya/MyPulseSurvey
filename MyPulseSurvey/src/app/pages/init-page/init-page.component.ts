@@ -1,7 +1,9 @@
 import { parseI18nMeta } from '@angular/compiler/src/render3/view/i18n/meta';
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { bounceOutLeftOnLeaveAnimation, fadeInRightOnEnterAnimation } from 'angular-animations';
 import { Survey } from 'src/app/models/entity/survey/survey';
+import { SurveyUser } from 'src/app/models/entity/survey/survey-user';
 import { SurveyFilter } from 'src/app/models/filter/survey/survey-filter';
 import { SurveyListFilter } from 'src/app/models/filter/survey/survey-list-filter';
 import { AlertifyService } from 'src/app/services/alertify.service';
@@ -12,6 +14,10 @@ import { SurveyService } from 'src/app/services/survey.service';
   selector: 'app-init-page',
   templateUrl: './init-page.component.html',
   styleUrls: ['./init-page.component.scss'],
+  animations: [
+    fadeInRightOnEnterAnimation({ anchor: 'enter', duration: 1000, delay: 100, translate: '30px' }),
+    bounceOutLeftOnLeaveAnimation({ anchor: 'leave', duration: 500, delay: 200, translate: '40px' })
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class InitPageComponent implements OnInit {
@@ -56,6 +62,24 @@ export class InitPageComponent implements OnInit {
     })
   }
 
+  startSurvey(){
+ 
+       let surveyUser=new SurveyUser();
+       surveyUser.surveyId=this.surveyId;
+       surveyUser.applicationUserId=this.userId;
+       surveyUser.startDate=new Date();
+       surveyUser.isFinish=false;
+  
+      this.surveyService.createSurveyStart(surveyUser).subscribe(res => {
+        this.router.navigate(['/survey',this.firstQuestionId,this.userId])
+
+      },
+      (error:any)=>{
+        this.alertify.error("Anket bulunamadı","")
+      }
+      );
+    
+  }
 
   getSurvey() {
     let filter = new SurveyFilter();

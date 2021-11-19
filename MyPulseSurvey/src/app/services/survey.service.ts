@@ -4,7 +4,9 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Category } from '../models/category';
 import { Survey } from '../models/entity/survey/survey';
+import { SurveyAnswerCreate } from '../models/entity/survey/survey-answer-create';
 import { SurveyCreate } from '../models/entity/survey/survey-create';
+import { SurveyUser } from '../models/entity/survey/survey-user';
 import { SurveyFilter } from '../models/filter/survey/survey-filter';
 import { SurveyListFilter } from '../models/filter/survey/survey-list-filter';
 import { PaginatedResponse } from '../models/response/paginated-reponse';
@@ -49,7 +51,40 @@ export class SurveyService {
     );
   }
 
+  createQuestionAnswer(surveyAnswerCreate: SurveyAnswerCreate) :Observable<ResponseData<SurveyAnswerCreate>> {
+   
+    return this.baseService.post<SurveyAnswerCreate>(
+      surveyAnswerCreate,
+      environment.serverBaseUrl,
+      EndPoints.SURVEY+'/CreateQuestionAnswer'
+    );
+  }
 
+
+  createSurveyStart(surveyUser:SurveyUser){
+    return this.baseService.post<SurveyUser>(
+      surveyUser,
+      environment.serverBaseUrl,
+      EndPoints.SURVEY+'/SurveyStart'
+    );
+  }
+
+  createSurveyFinish(surveyUser:SurveyUser){
+    return this.baseService.post<SurveyUser>(
+      surveyUser,
+      environment.serverBaseUrl,
+      EndPoints.SURVEY+'/SurveyFinish'
+    );
+  }
+
+
+  getSurveyCompleted(surveyUser:SurveyUser){
+    return this.baseService.post<SurveyUser>(
+      surveyUser,
+      environment.serverBaseUrl,
+      EndPoints.SURVEY+'/GetSurveyCompleted'
+    );
+  }
 
   delete(id: any): Observable<ResponseData<any>> {
    

@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row" [@enter] [@leave]>
     <div class="col-md-12">
         <div class="mypulse-content">
             <div class="mypulse-content-header bg-img" >
@@ -12,7 +12,7 @@
                     <p class="desc">
                         Daha iyi bir çalışma ortamı oluşturmamıza yardımcı olun
                     </p>
-                    <a  [routerLink]="['/survey',firstQuestionId]" class="btn btn-danger text-white w-100 rounded-5">
+                    <a href="javascript:;" (click)="startSurvey()" class="btn btn-danger text-white w-100 rounded-5">
                         Ankete Başla
                     </a>
                 </div>

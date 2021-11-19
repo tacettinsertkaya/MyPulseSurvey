@@ -14,6 +14,10 @@ import { SurveyComponent } from './survey/survey.component';
 import { CommonModule } from '@angular/common';
 import { MessagesComponent } from './messages/messages.component';
 import { SurveyNotFoundComponent } from './error-pages/survey-not-found/survey-not-found.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CompleteSurveyComponent } from './complete-survey/complete-survey.component';
+import { FormsModule } from '@angular/forms';
+import { HelpersModule } from '../helpers/helpers.module';
 
 
 
@@ -28,12 +32,15 @@ import { SurveyNotFoundComponent } from './error-pages/survey-not-found/survey-n
     InitPageComponent,
     SurveyComponent,
     MessagesComponent,
-    SurveyNotFoundComponent
+    SurveyNotFoundComponent,
+    CompleteSurveyComponent
     
     ],
   imports: [
     PagesRoutingModule,
+    FormsModule,
     CommonModule,
+    HelpersModule
   ]
 })
 export class PagesModule { }

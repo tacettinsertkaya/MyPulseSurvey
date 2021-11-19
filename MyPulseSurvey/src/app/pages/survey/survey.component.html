@@ -1,7 +1,8 @@
 
-<div class="row">
+<div class="row "   >
     <div class="col-md-12">
-        <div class="mypulse-content">
+        
+        <div class="mypulse-content" [@enter] [@leave]>
             <div class="mypulse-content-header bg-img">
                 <i class="bi bi-lock"></i>
                 Tüm cevaplar anonim olarak toplanmaktadır.
@@ -11,17 +12,18 @@
                 <div class="row align-items-center">
                     <div class="col-md-4">
                         <div class="mypulse-content-body-text">
-                            <img src="assets/images/mascot-bg.png" alt="*" class="img-fluid">
+                            
+                            <img  src="assets/images/mascot-bg.png" alt="*" class="img-fluid">
                         </div>
                     </div>
                   
                     <div class="col-md-8" *ngIf="currentQuestion">
                     
-                        <app-selection *ngIf="currentQuestion.type==question_type.SELECT"  [currentQuestion]="currentQuestion" ></app-selection>
-                        <app-multi-selection *ngIf="currentQuestion.type==question_type.MULTI_SELECT" [currentQuestion]="currentQuestion"  ></app-multi-selection>
-                        <app-emotion  *ngIf="currentQuestion.type==question_type.EMOTION"  [currentQuestion]="currentQuestion"    ></app-emotion>
-                        <app-comment   *ngIf="currentQuestion.type==question_type.INPUT" [currentQuestion]="currentQuestion"   ></app-comment>
-                        <app-rate  *ngIf="currentQuestion.type==question_type.RATING" [currentQuestion]="currentQuestion"  ></app-rate>
+                        <app-selection *ngIf="currentQuestion.type==question_type.SELECT"  (answerEvent)="submitAnswer($event)"  [currentQuestion]="currentQuestion" ></app-selection>
+                        <app-multi-selection *ngIf="currentQuestion.type==question_type.MULTI_SELECT" (answerEvent)="submitAnswer($event)" [currentQuestion]="currentQuestion"  ></app-multi-selection>
+                        <app-emotion  *ngIf="currentQuestion.type==question_type.EMOTION" (answerEvent)="submitAnswer($event)"  [currentQuestion]="currentQuestion"    ></app-emotion>
+                        <app-comment   *ngIf="currentQuestion.type==question_type.INPUT" (answerEvent)="submitAnswer($event)" [currentQuestion]="currentQuestion"   ></app-comment>
+                        <app-rate  *ngIf="currentQuestion.type==question_type.RATING" (answerEvent)="submitAnswer($event)" [currentQuestion]="currentQuestion"  ></app-rate>
 
                     </div>
                 </div>
@@ -29,7 +31,7 @@
 
             <div class="mypulse-content-footer">
                 <div class="row">
-                    <div class="col-md-3 col-6 order-1 order-lg-1 order-sm-2">
+                    <div *ngIf="!isFinish" class="col-md-3 col-6 order-1 order-lg-1 order-sm-2">
                         <button  (click)="prevQuestion()" type="button" class="btn btn-danger text-white rounded-5">
                             <i class="bi bi-chevron-left"></i> Önceki Soru
                         </button>
@@ -39,9 +41,14 @@
                             SORU {{question+1}} / {{totalQuestion}}
                         </label>
                     </div>
-                    <div  class="col-md-3 col-6 text-end order-lg-3 order-sm-3" >
+                    <div  *ngIf="!isFinish"   class="col-md-3 col-6 text-end order-lg-3 order-sm-3" >
                         <button [attr.disabled]="currentQuestion?null:'disabled'" (click)="nextQuestion()" type="button" class="btn btn-danger text-white rounded-5">
                             Sonraki Soru <i class="bi bi-chevron-right"></i> 
+                        </button>
+                    </div>
+                    <div  *ngIf="isFinish"   class="col-md-3 col-6 text-end order-lg-3 order-sm-3" >
+                        <button  (click)="surveyFinish()" type="button" class="btn btn-success text-white rounded-5">
+                            Anketi Bitir
                         </button>
                     </div>
                 </div>

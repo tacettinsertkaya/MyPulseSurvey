@@ -16,11 +16,10 @@ import { HttpClientModule } from '@angular/common/http';
     HomeComponent    
   ],
   imports: [
-    BrowserModule,
+    BrowserAnimationsModule,
     CommonModule,
     HttpClientModule,
     AppRoutingModule,
-    BrowserAnimationsModule,
     ToastrModule.forRoot(
       {
         timeOut: 6000,

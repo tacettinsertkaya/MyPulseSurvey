@@ -1,5 +1,5 @@
 
-                        <div class="question-details" *ngIf="currentQuestion">
+                        <div [@enter] [@leave] class="question-details" *ngIf="currentQuestion">
                             <p class="title fs-4">
                                  {{currentQuestion.title}}
                             </p>
@@ -7,36 +7,36 @@
                             <form action="" method="POST">
                                 <div class="question-details-rate">
                                     <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                                        <input type="radio" class="btn-check" name="btnradio" id="quest1" autocomplete="off">
+                                        <input type="radio" (change)="selectOption(currentQuestion,1)" class="btn-check" name="btnradio" id="quest1" autocomplete="off">
                                         <label class="btn btn-outline-primary" for="quest1">😡</label>
                                       
-                                        <input type="radio" class="btn-check" name="btnradio" id="quest2" autocomplete="off">
+                                        <input type="radio" (change)="selectOption(currentQuestion,2)" class="btn-check" name="btnradio" id="quest2" autocomplete="off">
                                         <label class="btn btn-outline-primary" for="quest2">😕</label>
                                       
-                                        <input type="radio" class="btn-check" name="btnradio" id="quest3" autocomplete="off">
+                                        <input type="radio" (change)="selectOption(currentQuestion,3)" class="btn-check" name="btnradio" id="quest3" autocomplete="off">
                                         <label class="btn btn-outline-primary" for="quest3">😒</label>
                                         
-                                        <input type="radio" class="btn-check" name="btnradio" id="quest4" autocomplete="off">
+                                        <input type="radio" (change)="selectOption(currentQuestion,4)" class="btn-check" name="btnradio" id="quest4" autocomplete="off">
                                         <label class="btn btn-outline-primary" for="quest4">😏</label>
                                         
-                                        <input type="radio" class="btn-check" name="btnradio" id="quest5" autocomplete="off">
+                                        <input type="radio" (change)="selectOption(currentQuestion,5)" class="btn-check" name="btnradio" id="quest5" autocomplete="off">
                                         <label class="btn btn-outline-primary" for="quest5">😍</label>
                                     </div>
                                 </div>
                                 <div class="question-details-comment">
                                     <div class="comment-col">
-                                        <div class="collapse show w-100" id="addComment">
+                                        <div class="collapse  w-100" id="addComment">
                                             <p class="h6">
                                                 Sizi böyle hissettiren şey neydi ?
                                             </p>
                                             <div class="form-floating">
-                                                <textarea class="form-control" placeholder="Yorum Ekleyin" id="floatingTextArea" style="height: 75px"></textarea>
+                                                <textarea (change)="addComment($event)" class="form-control" placeholder="Yorum Ekleyin" id="floatingTextArea" style="height: 75px"></textarea>
                                                 <label for="floatingTextArea">Yorum Ekleyin</label>
                                             </div>
                                         </div>
                                     </div>  
                                     <div class="comment-col">
-                                        <button class="btn collapse-btn" type="button" data-bs-toggle="collapse" data-bs-target="#addComment" aria-expanded="true" aria-controls="addComment">
+                                        <button class="btn collapse-btn" type="button" data-bs-toggle="collapse" data-bs-target="#addComment" aria-expanded="false" aria-controls="addComment">
                                             <i class="bi bi-chat"></i>
                                             <span class="text-danger">Yorum Ekle</span>
                                         </button>

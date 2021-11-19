@@ -1,56 +1,37 @@
 
-                     <div class="question-details" *ngIf="currentQuestion">
+                     <div  [@enter] [@leave] class="question-details animated flip" *ngIf="currentQuestion">
                         <p class="title fs-4">
                              {{currentQuestion.title}}
                         </p>
                         <span class="labelWarn">  {{currentQuestion.description}}</span>
+                       
                             <form action="" method="POST">
                                 <div class="question-details-rate">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="questioncheck1" checked>
+
+                                    <div *ngFor="let option of currentQuestion.surveyQuestionOptions" class="form-check">
+                                        <input (change)="selectOption(currentQuestion,option)" class="form-check-input" type="radio" name="flexRadioDefault" id="questioncheck1">
                                         <label class="form-check-label" for="questioncheck1">
-                                            05 / 11 / 2021 Çarşamba
+                                           {{option.title}}
+                                           <span *ngIf="option.description">({{option.description}})</span>
                                         </label>
+                                        
                                     </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="questioncheck2">
-                                        <label class="form-check-label" for="questioncheck2">
-                                            06 / 11 / 2021 Perşembe
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="questioncheck3">
-                                        <label class="form-check-label" for="questioncheck3">
-                                            07 / 11 / 2021 Cuma
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="questioncheck4">
-                                        <label class="form-check-label" for="questioncheck4">
-                                            08 / 11 / 2021 Cumartesi
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="questioncheck5">
-                                        <label class="form-check-label" for="questioncheck5">
-                                            09 / 11 / 2021 Pazar
-                                        </label>
-                                    </div>
+                                   
                                 </div>
                                 <div class="question-details-comment">
                                     <div class="comment-col">
-                                        <div class="collapse show w-100" id="addComment">
+                                        <div class="collapse  w-100" id="addComment">
                                             <p class="h6">
                                                 Sizi böyle hissettiren şey neydi ?
                                             </p>
                                             <div class="form-floating">
-                                                <textarea class="form-control" placeholder="Yorum Ekleyin" id="floatingTextArea" style="height: 75px"></textarea>
+                                                <textarea class="form-control" (change)="addComment($event)" placeholder="Yorum Ekleyin" id="floatingTextArea" style="height: 75px"></textarea>
                                                 <label for="floatingTextArea">Yorum Ekleyin</label>
                                             </div>
                                         </div>
                                     </div>  
                                     <div class="comment-col">
-                                        <button class="btn collapse-btn" type="button" data-bs-toggle="collapse" data-bs-target="#addComment" aria-expanded="true" aria-controls="addComment">
+                                        <button class="btn collapse-btn" type="button" data-bs-toggle="collapse" data-bs-target="#addComment" aria-expanded="false" aria-controls="addComment">
                                             <i class="bi bi-chat"></i>
                                             <span class="text-danger">Yorum Ekle</span>
                                         </button>

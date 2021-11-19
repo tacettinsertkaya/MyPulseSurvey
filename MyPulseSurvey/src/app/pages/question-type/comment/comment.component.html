@@ -1,4 +1,4 @@
-<div class="question-details" *ngIf="currentQuestion">
+<div [@enter] [@leave] class="question-details" *ngIf="currentQuestion">
     <p class="title fs-4">
          {{currentQuestion.title}}
     </p>
@@ -6,12 +6,15 @@
     <form action="" method="POST">
         <div class="question-details-comment mt-2">
             <div class="comment-col fx-100">
-                <div class="w-50" id="addComment">
+                <div class="w-100" id="addComment">
                     <div class="form-floating">
-                        <textarea class="form-control" placeholder="Yorum Ekleyin" id="floatingTextArea"
+                        <textarea (change)="addComment($event,currentQuestion)" class="form-control" placeholder="Yorum Ekleyin" id="floatingTextArea"
                             style="height: 75px"></textarea>
                         <label for="floatingTextArea">Yorum Ekleyin</label>
                     </div>
+                    <button (click)="submitComment(currentQuestion)" type="button" class="btn btn-danger float-end mt-2 text-white rounded-5">
+                        Kaydet
+                    </button>
                 </div>
             </div>
         </div>

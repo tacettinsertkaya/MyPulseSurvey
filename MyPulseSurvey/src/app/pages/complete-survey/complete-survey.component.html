@@ -1,0 +1,30 @@
+<div class="row" [@enter] [@leave] >
+    <div class="col-md-12">
+        <div class="mypulse-content">
+            <div class="mypulse-content-header bg-img" >
+                <i class="bi bi-lock"></i>
+            </div>
+            <div class="mypulse-content-body" >
+                <div class="mypulse-content-body-text ">
+                    <div class="success-checkmark mt-5">
+                        <div class="check-icon">
+                          <span class="icon-line line-tip"></span>
+                          <span class="icon-line line-long"></span>
+                          <div class="icon-circle"></div>
+                          <div class="icon-fix"></div>
+                        </div>
+                      </div>
+                    <h1 class="title h2 mt-5">Anket Tamamlandı</h1>
+                
+                    <p class="desc">
+                       Süre : {{finishDate | dateCalculate:startDate}} 
+
+                    </p>
+                   
+                </div>
+            </div>
+         
+        </div>
+    </div>
+</div>
+
