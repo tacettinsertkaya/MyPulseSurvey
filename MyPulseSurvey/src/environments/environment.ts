@@ -4,9 +4,9 @@
 
 export const environment = {
   production: false,
-   serverBaseUrl: "https://localhost:5001/api",
+  //  serverBaseUrl: "https://localhost:5001/api",
   appUrl:"http://localhost:4200/#/",
-  // serverBaseUrl: "https://api.mypulsepro.com/api",
+ serverBaseUrl: "https://api.hpwsurvey.com/api",
   // appUrl:"https://mypulsepro.com/#/"
 };
 
